@@ -48,14 +48,14 @@ def test_jammed_lock_response(lock, capsys):
 def test_lock_during_unlocking(lock):
     lock._is_unlocking = True
     lock.lock()
-    # Either jam occurred or lock succeeded
+    # Either jam occurred
     assert lock._is_jammed is True
 
 # 7. Lock is Locking -> Asked to unlock during event
 def test_unlock_during_locking(lock):
     lock._is_locking = True
     lock.unlock()
-    # Either jam occurred or unlock succeeded
+    # Either jam occurred
     assert lock._is_jammed is True
 
 # 8. Manual Lock Change
